@@ -35,20 +35,25 @@ function Todo() {
       return item;
     });
     putItems(newItems);
-  }
+  };
+  
+  const handleAdd = text => {
+    putItems([...items, {key: getKey(), text, done:false}]);
+  };
   
   return (
     <div className="panel">
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
-      {items.map(item => (
-        <TodoItem  //onClick={has-text-grey-light}
-          key = {item.key}
-          item = {item}
-          onCheck = {handleCheck}
-        />
-      ))}
+        <input onAdd = {handleAdd} />
+        {items.map(item => (
+          <TodoItem  
+            key = {item.key}
+            item = {item}
+            onCheck = {handleCheck}
+          />
+        ))}
       <div className="panel-block">
         {items.length} items
       </div>
