@@ -33,7 +33,7 @@ function Todo() {
         ITSS ToDoアプリ
       </div>
       {items.map(item => (
-        <TodoItem 
+        <TodoItem  //onClick={has-text-grey-light}
           key = {item.key}
           item = {item}
         />
